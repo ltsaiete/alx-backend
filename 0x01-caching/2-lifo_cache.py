@@ -13,6 +13,7 @@ class LIFOCache(BaseCaching):
     Args:
         BaseCaching (_type_): _description_
     """
+
     def __init__(self):
         """_summary_
         """
@@ -44,7 +45,7 @@ class LIFOCache(BaseCaching):
         Returns:
             _type_: _description_
         """
-        if key is not None and self.cache_data.has_key(key):
+        if key is not None and key in self.cache_data:
             return self.cache_data[key]
 
         return None
