@@ -65,20 +65,7 @@ class Server:
         assert page_size > 0
 
         start_row_index, end_row_index = index_range(page, page_size)
-        page_lines = []
 
-        with open(self.DATA_FILE, newline='') as csvfile:
-            csv_reader = csv.reader(csvfile)
-
-            for _ in range(start_row_index):
-                try:
-                    next(csv_reader)
-                except StopIteration:
-                    return []
-
-            for current_row_index, row in enumerate(csv_reader):
-                page_lines.append(row)
-                if current_row_index >= end_row_index - 1:
-                    break
+        page_lines = self.dataset()[start_row_index:end_row_index]
 
         return page_lines
