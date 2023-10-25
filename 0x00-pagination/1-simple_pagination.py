@@ -6,6 +6,10 @@ one function called index_range
 """
 
 from typing import Tuple
+import csv
+import math
+from typing import List
+
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """return a tuple of size two containing a start index and an end index
@@ -22,13 +26,6 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     start_index = (page - 1) * page_size
     end_index = page * page_size
     return (start_index, end_index)
-
-
-
-import csv
-import math
-from typing import List
-
 
 class Server:
     """Server class to paginate a database of popular baby names.
@@ -55,8 +52,21 @@ class Server:
         assert isinstance(page_size, int)
         assert page_size > 0
 
-        rows_index = index_range(page, page_size)
+        start_row_index, end_row_index = index_range(page, page_size)
+        page_lines = []
 
-        print(rows_index)
+        with open(self.DATA_FILE, newline='') as csvfile:
+            csv_reader = csv.reader(csvfile)
 
-        return 0
+            for _ in range(start_row_index):
+                try:
+                    next(csv_reader)
+                except StopIteration:
+                    return []
+
+            for current_row_index, row in enumerate(csv_reader):
+                page_lines.append(row)
+                if current_row_index >= end_row_index - 1:
+                    break
+
+        return page_lines
