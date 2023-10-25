@@ -57,7 +57,7 @@ class Server:
 
         for idx in range(index, next_index):
             if idx not in dataset:
-                
+
                 next_index = next_index + 1
 
                 continue
@@ -69,5 +69,3 @@ class Server:
             'page_size': len(data),
             'data': data
         }
-
-
