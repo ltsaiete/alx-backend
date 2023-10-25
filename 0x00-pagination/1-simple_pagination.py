@@ -33,6 +33,8 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """_summary_
+        """
         self.__dataset = None
 
     def dataset(self) -> List[List]:
@@ -47,6 +49,16 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """return the appropriate page of the dataset
+        (i.e. the correct list of rows)
+
+        Args:
+            page (int, optional): _description_. Defaults to 1.
+            page_size (int, optional): _description_. Defaults to 10.
+
+        Returns:
+            List[List]: _description_
+        """
         assert isinstance(page, int)
         assert page > 0
         assert isinstance(page_size, int)
