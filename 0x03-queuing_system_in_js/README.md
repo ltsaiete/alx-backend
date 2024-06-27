@@ -1,6 +1,9 @@
 # 0x03. Queuing System in JS
+
 ## Learning Objectives
+
 At the end of this project, you are expected to be able to <a href="/rltoken/7yh7c3Zyy1RyUsdwlfsyDg" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:
+
 - How to run a Redis server on your machine
 - How to run simple operations with the Redis client
 - How to use a Redis client with Node JS for basic operations
@@ -9,7 +12,9 @@ At the end of this project, you are expected to be able to <a href="/rltoken/7yh
 - How to use Kue as a queue system
 - How to build a basic Express app interacting with a Redis server
 - How to the build a basic Express app interacting with a Redis server and queue
+
 ## Required Files for the Project
+
 ### <code>package.json</code>
 
 <summary>
@@ -59,7 +64,7 @@ Click to show/hide file contents</summary>
 <summary>
 Click to show/hide file contents
 </summary>
-<pre><code> 
+<pre><code>
 {
   "presets": [
     "@babel/preset-env"
@@ -69,4 +74,5 @@ Click to show/hide file contents
 </pre>
 
 ### and…
+
 Don’t forget to run <code>$ npm install</code> when you have the <code>package.json</code>
